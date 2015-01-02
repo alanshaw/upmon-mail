@@ -1,6 +1,6 @@
 # upmon-mail [![Build Status](https://travis-ci.org/alanshaw/upmon-mail.svg?branch=master)](https://travis-ci.org/alanshaw/upmon-mail) [![Dependency Status](https://david-dm.org/alanshaw/upmon-mail.svg?style=flat)](https://david-dm.org/alanshaw/upmon-mail) [![Coverage Status](https://img.shields.io/coveralls/alanshaw/upmon-mail/master.svg?style=flat)](https://coveralls.io/r/alanshaw/upmon-mail)
 
-Send an email message when upmon detects a failure.
+Send an email message when [upmon](https://github.com/alanshaw/upmon) detects a failure.
 
 ## Getting started
 
