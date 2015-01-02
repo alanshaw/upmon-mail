@@ -1,7 +1,7 @@
 var http = require('http')
 var test = require('tape')
 var stubTransport = require('nodemailer-stub-transport')
-var ping = require('upmon/ping')
+var ping = require('upmon')
 var mail = require('./')
 
 test('Fail and recover', function (t) {
