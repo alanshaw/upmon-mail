@@ -1,7 +1,6 @@
 var http = require('http')
 var test = require('tape')
 var stubTransport = require('nodemailer-stub-transport')
-var ndjson = require('ndjson')
 var ping = require('upmon/ping')
 var mail = require('./')
 
@@ -18,16 +17,16 @@ test('Fail and recover', function (t) {
 
   var transport = stubTransport()
   var pinger = ping({
-    "interval": 1000,
-    "services": ["http://localhost:1337"]
+    interval: 1000,
+    services: ['http://localhost:1337']
   })
   var mailer = mail({
-    "from": "up@example.org",
-    "to": ["alan@example.org"],
-    "transport": transport
+    from: 'up@example.org',
+    to: ['alan@example.org'],
+    transport: transport
   })
 
-  pinger.pipe(ndjson.serialize()).pipe(mailer)
+  pinger.pipe(mailer)
 
   var mailCount = 0
 

@@ -18,19 +18,27 @@ function sendMail (type, transport, from, to, lastPing, ping) {
 var sendFailMail = sendMail.bind(null, 'FAIL')
 var sendRecoverMail = sendMail.bind(null, 'RECOVER')
 
+function isString (str) {
+  return Object.prototype.toString.call(str) == '[object String]'
+}
+
 module.exports = function (opts) {
   opts = opts || {}
 
   var transport = nodemailer.createTransport(opts.transport)
   var lastPings = {}
 
-  return through(function (chunk, enc, cb) {
+  return through.obj(function (chunk, enc, cb) {
     var ping
 
-    try {
-      ping = JSON.parse(chunk)
-    } catch (er) {
-      return cb(er)
+    if (Buffer.isBuffer(chunk) || isString(chunk)) {
+      try {
+        ping = JSON.parse(chunk)
+      } catch (er) {
+        return cb(er)
+      }
+    } else {
+      ping = chunk
     }
 
     var lastPing = lastPings[ping.url]
