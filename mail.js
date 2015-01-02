@@ -11,7 +11,7 @@ function sendMail (type, transport, from, to, lastPing, ping) {
   }
 
   transport.sendMail(opts, function (er, info) {
-    if (er) console.error('Failed to send fail mail', er, info)
+    if (er) console.error('Failed to send ' + type + ' mail', er, info)
   })
 }
 
