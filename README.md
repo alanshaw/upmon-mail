@@ -37,7 +37,7 @@ Send an email message when [upmon](https://github.com/alanshaw/upmon) detects a 
 
 ## Build your own monitor
 
-Want to run upmon from [boss](https://www.npmjs.com/package/process-boss) or [pm2](https://www.npmjs.com/package/pm2)?
+Want to run upmon from [guvnor](https://www.npmjs.com/package/guvnor) or [pm2](https://www.npmjs.com/package/pm2)?
 
 Create a new project, add a `.upmonrc` config file, install the upmon modules you need, and pipe them together!
 
